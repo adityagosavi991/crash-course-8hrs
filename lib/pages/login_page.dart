@@ -1,9 +1,15 @@
 import 'package:ecommerce_project/utils/routes.dart';
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 
+  @override
+  _LoginPageState createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  String name = "";
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -19,7 +25,7 @@ class LoginPage extends StatelessWidget {
               height: 20,
             ),
             Text(
-              'Welcome',
+              'Welcome $name',
               style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
             ),
             SizedBox(
@@ -31,9 +37,12 @@ class LoginPage extends StatelessWidget {
               child: Column(
                 children: [
                   TextFormField(
-                    decoration: InputDecoration(
-                        hintText: "Enter UserName", labelText: "UserName"),
-                  ),
+                      decoration: InputDecoration(
+                          hintText: "Enter UserName", labelText: "UserName"),
+                      onChanged: (value) {
+                        name = value;
+                        setState(() {});
+                      }),
                   TextFormField(
                     obscureText: true,
                     decoration: InputDecoration(
@@ -50,7 +59,7 @@ class LoginPage extends StatelessWidget {
                       style: TextButton.styleFrom(
                           backgroundColor: Colors.blue[900],
                           padding: EdgeInsets.all(20),
-                          minimumSize: Size(150, 60))),
+                          minimumSize: Size(150, 50))),
                 ],
               ),
             )
