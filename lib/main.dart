@@ -14,8 +14,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       // home: HomePage(),
-      initialRoute:
-          "/login", //This tells flutter to open login page first and not home page, which is by default due to "/" route.
+      initialRoute: MyRoutes
+          .homeRoute, //This tells flutter to open login page first and not home page, which is by default due to "/" route.
       routes: {
         "/": (context) => HomePage(), //This page will be shown by default.
         MyRoutes.loginRoute: (context) => LoginPage(),
